@@ -1,1 +1,8 @@
 node_modules/
+
+# full metadata export: too large for git, published as a GitHub Release
+data/hero-metadata.json
+data/hero-metadata.csv
+data/hero-metadata.json.gz
+data/hero-metadata.csv.gz
+data/.metadata-*.jsonl

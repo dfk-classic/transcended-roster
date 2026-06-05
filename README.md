@@ -23,6 +23,32 @@ two months, and another 25k in March 2026 ahead of the pause.
 - `data/raw/transcended-dfkchain.json`: raw DFK Chain events (heroId, owner, block, timestamp)
 - `data/raw/transcended-kaia.json`: raw Kaia events
 
+## Full hero metadata
+
+Every card attribute for all 170,829 heroes, decoded from chain: class,
+subClass, rarity, generation, level, xp, stats, growth, element, profession
+and skill levels, crafting, active and passive abilities by name, the full
+recessive genes (R1/R2/R3, stat and visual), plus the wallet that transcended
+the hero with block and date. 335 columns.
+
+The full JSON and CSV are published under
+[Releases](https://github.com/dfk-classic/transcended-roster/releases) (too
+large for git). A 40-hero sample lives at `data/hero-metadata-sample20.json`
+and `.csv`.
+
+Rebuild or check it yourself:
+
+```bash
+node scripts/export-metadata.mjs              # full export, resumable, ~1h
+node scripts/export-metadata.mjs --sample 20  # quick preview
+node scripts/verify-decode.mjs data/hero-metadata.json   # re-derive every gene field and compare
+```
+
+Trait order, slot order (r3 r2 r1 dominant per 4-gene group) and all enum
+names follow the documented gene encoding and match HONK Marketplace's
+mappings. `lib/decode.mjs` also exports `translateGenes(statGenes, visualGenes)`
+if you want the decoder without the exporter.
+
 ## Reproduce it yourself
 
 You don't have to trust this repo. All of it is rebuilt from public chain
