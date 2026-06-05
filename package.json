@@ -1,0 +1,16 @@
+{
+  "name": "dfk-classic-transcended-roster",
+  "version": "1.0.0",
+  "description": "Indexer and dataset: every DeFi Kingdoms hero burned via Divine Transcendence (the DFK Classic collectible pool)",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "index:dfkchain": "node scripts/index-dfkchain.mjs",
+    "index:kaia": "node scripts/index-kaia.mjs",
+    "build:roster": "node scripts/build-roster.mjs"
+  },
+  "dependencies": {
+    "viem": "^2.21.0",
+    "xlsx": "^0.18.5"
+  }
+}
